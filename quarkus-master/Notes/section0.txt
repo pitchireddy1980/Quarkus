@@ -1,0 +1,37 @@
+
+
+Introduction to Quarkus Core Concepts
+-------------------------------------
+
+
+    Getting started with GraalVM
+    ----------------------------
+
+    export GRAALVM_HOME=/path/to/graal
+    export PATH=$PATH:$GRAALVM_HOME
+    export JAVA_HOME=$GRAALVM_HOME
+
+
+    Running a Java application with GraalVM
+    ---------------------------------------
+
+    javac Main.java
+    java Main
+
+
+    Building native images
+    ----------------------
+
+    {GRAALVM_HOME}/bin/gu install native-image
+    native-image Main
+    ls -al main
+    ./main
+
+
+
+    Installing a development environment
+    ------------------------------------
+
+    - eclipse
+    - idea
+    - vscode

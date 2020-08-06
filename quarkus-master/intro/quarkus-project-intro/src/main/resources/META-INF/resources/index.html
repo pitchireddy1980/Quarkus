@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>my quarkus project</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="container">
+
+<hr/>
+<h1>my quarkus project</h1>
+<hr/>
+
+<div class="row">
+<div class="col-4">
+
+ <div class="card">
+ <div class="card-header">Add New Product</div>
+ <div class="card-body">
+ 	<form id="form">
+ 		<div class="form-group">
+ 			<label>Id</label>
+ 			<input class="form-control" id="id"/>
+ 		</div>
+ 		<div class="form-group">
+ 			<label>Name</label>
+ 			<input class="form-control" id="name"/>
+ 		</div>
+ 		<button>Add</button>
+ 	</form>
+ 	
+ 	<hr/>
+ 	
+ 	<div id="message"></div>
+ 	
+ 	<hr/>
+ 	
+ </div>
+ </div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$("#form").submit(e=>{
+		e.preventDefault()
+		let formData={
+			id:$('#id').val(),
+			name:$('#name').val()
+		}
+	
+		fetch("/api/products",{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json',
+			},
+			body:JSON.stringify(formData)
+		})
+		.then(response=>response.json())
+		.then(data=>{
+			$('#message').text("New product saved")
+			$('#id').val('')
+			$('#name').val('')
+		})
+		
+		
+	})
+	
+})
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+
+Developing Your First Application with Quarkus
+------------------------------------------------
+
+
+    install maven
+    ---------------
+
+    mkdir $HOME/apache
+    unzip $HOME/Downloads/apache-maven-3.6.3-bin.zip -d $HOME/apache 
+
+    export PATH=$PATH:$HOME/apache/apache-maven-3.6.3/bin
+    mvn --version
+
+
+
+    Launching the Quarkus Maven plugin
+    ----------------------------------
+
+    mvn -Dplugin=io.quarkus:quarkus-maven-plugin help:describe
+    mvn io.quarkus:quarkus-maven-plugin:1.0.0.Final:create 
+
+
+    Running the application
+    -----------------------
+
+    mvn compile quarkus:dev
+    curl http://localhost:8080/hello
+
+
+    Kick-starting applications using the Quarkus online application
+    -----------------------------------------------------------------
+
+    http://code.quarkus.io
+
+ 
+    Testing live reload from your IDE
+    ------------------------------------
+
+    curl http://localhost:8080/hello
+
+    Debugging applications
+    ----------------------
+
+    netstat -an | grep 5005
+    curl http://localhost:8080/hello/ibm
+
+    Testing Quarkus applications
+    -----------------------------
+
+    mvn clean test
+    
+    Choosing a different port for testing
+    ------------------------------------
+
+    quarkus.http.test-port=9081
+
+
+
+
+    Turning your application into a native executable
+    ----------------------------------------------------
+
+    mvn package -Pnative
+
+    target/my-quarkus-project-1.0-SNAPSHOT-runner    
+
+    ps -o pid,rss,command -p $(pgrep -f my-quarkus-project)
+
+    curl http://localhost:8080/hello
+
+
+    Executing integration tests against the native executable
+    ----------------------------------------------------------
+
+    export GRAALVM_HOME=/path/to/graal
+    
+    mvn verify -Pnative
+
+
+
+
+
+
+

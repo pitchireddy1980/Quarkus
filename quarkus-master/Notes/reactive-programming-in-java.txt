@@ -1,0 +1,185 @@
+
+
+-----------------------------------------------------------
+
+Reactive Programming is trending
+
+    Why are people so excited about reactive programming?
+    What does it mean to be reactive? 
+    Would it be helpful in our projects? 
+    Should we learn how to use it?
+
+
+-----------------------------------------------------------
+
+Meanwhile Java is
+
+    -  is popular with its multi-threading, speed, reliability, and good portability.
+    -  but has bad reputation too — 
+       it is very hard to write both concurrent
+       and simple applications using only the built-in tools
+    -  programming requires writing a lot of boilerplate code   
+
+    In other words, 
+    Java is powerful and you can create great applications with it,
+    but it won't be easy.
+
+    The good news is that there is a way to change that, 
+    using the reactive style of programming.
+
+
+-----------------------------------------------------------
+
+- What reactive programming is
+- Reasons to learn and use this style of programming
+
+-----------------------------------------------------------
+
+What is reactive programming?
+
+Reactive programming is a paradigm that revolves around the propagation of change. 
+
+In other words, if a program propagates all the changes that modify its data to all the interested parties
+(users, other programs, components, and sub-parts), then this program can be called reactive.
+
+
+A simple example of this is Microsoft Excel. 
+If you set a number in cell A1 and another number in cell 'B1',
+and set cell 'C1' to SUM(A1, B1); 
+whenever 'A1' or 'B1' changes, 'C1' will be updated to be their sum.
+
+Let's call this the reactive sum.
+
+-----------------------------------------------------------
+
+What is the difference between assigning a simple variable c 
+to be equal to the sum of the a and b variables
+and the reactive sum approach?
+
+
+int a = 4;
+int b = 5;
+int c = a + b;
+System.out.println(c); // 9
+
+a = 6;
+System.out.println(c);
+// 9 again, but if 'c' was tracking the changes of 'a' and 'b',
+// it would've been 6 + 5 = 11
+
+
+-----------------------------------------------------------
+
+Why should we be reactive?
+
+
+The easiest way for us to answer this question is to think about the requirements 
+we have while building applications these days.
+
+
+    - today everything should be online 24/7 and 
+      should respond with lightning speed; 
+    - if it's slow or down,users would prefer an alternative service.
+    - Today slow means unusable or broken.
+    - We are working with greater volumes of data
+      that we need to serve and process fast.
+
+
+    we have to be fault-tolerant and give our users readable and reasonable message updates.
+
+    In the past, we wrote simple desktop applications,but today we write web applications, 
+    which should be fast and responsive. 
+
+-----------------------------------------------------------
+
+
+    These are the new requirements 
+    we have to fulfill if we want our software to be competitive. 
+    So in other words we have to be:
+
+
+    1.Modular/dynamic: 
+    -----------------
+    This way, we will be able to have 24/7 systems, 
+    because modules can go offline and come online without breaking 
+    or halting the entire system. 
+    Additionally, 
+    this helps us better structure our applications 
+    as they grow larger and manage their code base.
+
+    2.Scalable: 
+    ----------
+    This way, we are going to be able to handle
+    a huge amount of data
+    or large numbers of user requests.
+
+    3.Fault-tolerant:
+    -----------------
+    This way, the system will appear stable to its users.
+
+    4.Responsive:
+    ------------
+    This means fast and available.
+
+
+	-----------------------------------------------------------
+
+
+    Let's think about how to accomplish this:
+
+	#1
+    We can become modular if our system is event-driven.
+    We can divide the system into multiple
+    micro-services/components/modules
+    that are going to communicate with each other using notifications.
+    This way, 
+    we are going to react to the data flow of the system,
+    represented by notifications.
+
+	#2
+    To be scalable means 
+    to react to the ever-growing data, 
+    to react to load without falling apart.
+
+	#3
+    Reacting to failures/errors 
+    will make the system more fault-tolerant.
+
+	#4
+    To be responsive means 
+    reacting to user activity in a timely manner.
+
+	
+	-----------------------------------------------------------
+
+	#
+    If the application is event-driven, 
+    it can be decoupled into multiple self-contained components.
+    This helps us become more scalable, 
+    because we can always add new components 
+    or remove old ones without stopping or breaking the system.
+
+	#
+    If errors and failures are passed to the right component,
+    which can handle them as notifications,
+    the application can become more fault-tolerant or resilient. 
+    
+    #
+    So if we build our system to be event-driven, 
+    we can more easily achieve scalability and failure tolerance,
+    and a scalable, decoupled, and error-proof application 
+    is fast and responsive to users.
+
+	-----------------------------------------------------------
+	
+    Reactive Manifesto (http://www.reactivemanifesto.org/)
+    -----------------------------------------------------------
+
+
+    Changes in the application data can be modeled with notifications,
+    which can be propagated to the right handlers. 
+    So, writing applications 
+    using reactive programming is the easiest way 
+    to comply with the Manifesto.
+
+	------------------------------------------------------------

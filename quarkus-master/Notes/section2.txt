@@ -1,0 +1,48 @@
+
+
+Creating a Container/Docker Image of Your Application
+----------------------------------------------
+
+
+    Setting up Docker
+    -----------------
+
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo usermod $(whoami) -G docker -a
+    groups $(whoami)
+    docker run hello-world
+
+
+    Running Quarkus applications in a container
+    -------------------------------------------
+
+
+    tree src/main/docker
+    mvn install
+    docker build -f src/main/docker/Dockerfile.jvm -t nagabhushanamn/my-quarkus-project .
+    docker image ls | grep my-quarkus-project
+    docker run -i --rm -p 8080:8080 nagabhushanamn/my-quarkus-project
+    docker container ls --format '{{.Image}}'
+    curl http://localhost:8080/hello
+
+
+    Running the native executable process in a container
+    ----------------------------------------------------
+
+    mvn package -Pnative -Dnative-image.docker-build=true 
+    docker build -f src/main/docker/Dockerfile.native -t nagabhushanamn/my-quarkus-project-native .
+    docker images | grep my-quarkus-project-native
+    docker run -i --rm -p 8080:8080 nagabhushanamn/my-quarkus-project-native
+    curl http://localhost:8080/hello
+
+    
+
+
+    
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+
+
+hello-microservice : spring boot
+------------------------------------
+aritifact-size : 16M
+Startup-time  :  2.295s
+Heap memory usage : 454M
+Memory  
+    - RSS :574464 
+    - VSZ :10454740
+Number classes loaded into heap : 6212    
+Time-To-First-request : 3s
+http-server / web-container : Tomcat / Jetty
+
+
+JVM-hello-microservice : quarkus 
+-------------------------------------
+aritifact-size : 216K
+Startup-time  :  0.853s
+Heap memory usage : 270M
+Memory  
+    - RSS :151404 
+    - VSZ :10325092
+Number classes loaded into heap : 4062    
+Time-To-First-request : 1s
+http-server / web-container : Vert.x server  ( by default reactive server)
+
+
+Native-hello-microservice : quarkus    
+----------------------------------------    
+Startup-time  :  0.016s
+Memory  
+    - RSS :17716 
+    - VSZ :4422676
+
+Time-To-First-request : 0.5 ( assumption )
+
+
+
